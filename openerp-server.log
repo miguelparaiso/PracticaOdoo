@@ -1,0 +1,43 @@
+2015-07-23 13:04:56,490 6756 INFO ? openerp: OpenERP version 8.0
+2015-07-23 13:04:56,492 6756 INFO ? openerp: addons paths: ['C:\\Users\\Paraiso\\AppData\\Local\\OpenERP S.A.\\Odoo\\addons\\8.0', u'C:\\Users\\Paraiso\\Google Drive\\GitHub\\odoo\\addons', 'C:\\Users\\Paraiso\\Google Drive\\GitHub\\odoo\\openerp\\addons']
+2015-07-23 13:04:56,492 6756 INFO ? openerp: database hostname: localhost
+2015-07-23 13:04:56,492 6756 INFO ? openerp: database port: 5433
+2015-07-23 13:04:56,492 6756 INFO ? openerp: database user: odoo
+2015-07-23 13:04:56,661 6756 INFO ? openerp.service.server: HTTP service (werkzeug) running on 0.0.0.0:8069
+2015-07-23 13:05:50,914 6756 INFO ? openerp.addons.bus.bus: Bus.loop listen imbus on db postgres
+2015-07-23 13:05:51,759 6756 INFO ? openerp.addons.report.models.report: You need Wkhtmltopdf to print a pdf version of the reports.
+2015-07-23 13:05:52,062 6756 INFO ? openerp.http: HTTP Configuring static files
+2015-07-23 13:05:52,141 6756 INFO paraisonline openerp.modules.loading: loading 1 modules...
+2015-07-23 13:05:52,155 6756 INFO paraisonline openerp.modules.loading: 1 modules loaded in 0.01s, 0 queries
+2015-07-23 13:05:52,180 6756 INFO paraisonline openerp.modules.loading: loading 16 modules...
+2015-07-23 13:05:52,227 6756 INFO paraisonline openerp.modules.loading: 16 modules loaded in 0.05s, 0 queries
+2015-07-23 13:05:52,507 6756 INFO paraisonline openerp.modules.loading: Modules loaded.
+2015-07-23 13:05:52,509 6756 INFO paraisonline openerp.addons.base.ir.ir_http: Generating routing map
+2015-07-23 13:05:53,986 6756 INFO paraisonline werkzeug: 127.0.0.1 - - [23/Jul/2015 13:05:53] "GET /web HTTP/1.1" 200 -
+2015-07-23 13:05:54,013 6756 INFO ? werkzeug: 127.0.0.1 - - [23/Jul/2015 13:05:54] "GET /web/static/src/css/full.css HTTP/1.1" 304 -
+2015-07-23 13:05:54,217 6756 INFO paraisonline werkzeug: 127.0.0.1 - - [23/Jul/2015 13:05:54] "GET /web/css/web.assets_common/0501daf HTTP/1.1" 200 -
+2015-07-23 13:05:54,217 6756 INFO paraisonline werkzeug: 127.0.0.1 - - [23/Jul/2015 13:05:54] "GET /web/js/web.assets_common/0501daf HTTP/1.1" 200 -
+2015-07-23 13:05:54,423 6756 INFO paraisonline werkzeug: 127.0.0.1 - - [23/Jul/2015 13:05:54] "GET /web/binary/company_logo HTTP/1.1" 200 -
+2015-07-23 13:05:54,473 6756 INFO paraisonline werkzeug: 127.0.0.1 - - [23/Jul/2015 13:05:54] "GET /web/css/web.assets_backend/fb1e3d8 HTTP/1.1" 200 -
+2015-07-23 13:05:54,575 6756 INFO paraisonline werkzeug: 127.0.0.1 - - [23/Jul/2015 13:05:54] "GET /web/js/web.assets_backend/fb1e3d8 HTTP/1.1" 200 -
+2015-07-23 13:05:55,355 6756 INFO ? werkzeug: 127.0.0.1 - - [23/Jul/2015 13:05:55] "GET /web/static/src/img/favicon.ico HTTP/1.1" 200 -
+2015-07-23 13:05:55,680 6756 INFO paraisonline openerp.service.common: successful login from 'admin' using database 'paraisonline'
+2015-07-23 13:05:55,845 6756 INFO paraisonline werkzeug: 127.0.0.1 - - [23/Jul/2015 13:05:55] "POST /web/session/get_session_info HTTP/1.1" 200 -
+2015-07-23 13:05:56,680 6756 INFO paraisonline werkzeug: 127.0.0.1 - - [23/Jul/2015 13:05:56] "POST /web/proxy/load HTTP/1.1" 200 -
+2015-07-23 13:05:57,032 6756 INFO paraisonline werkzeug: 127.0.0.1 - - [23/Jul/2015 13:05:57] "POST /web/session/modules HTTP/1.1" 200 -
+2015-07-23 13:05:57,318 6756 INFO paraisonline werkzeug: 127.0.0.1 - - [23/Jul/2015 13:05:57] "POST /web/webclient/translations HTTP/1.1" 200 -
+2015-07-23 13:05:57,368 6756 INFO paraisonline werkzeug: 127.0.0.1 - - [23/Jul/2015 13:05:57] "POST /web/menu/load_needaction HTTP/1.1" 200 -
+2015-07-23 13:05:57,721 6756 INFO paraisonline werkzeug: 127.0.0.1 - - [23/Jul/2015 13:05:57] "POST /web/dataset/call_kw/res.users/has_group HTTP/1.1" 200 -
+2015-07-23 13:05:57,742 6756 INFO paraisonline werkzeug: 127.0.0.1 - - [23/Jul/2015 13:05:57] "POST /web/dataset/call_kw/res.users/read HTTP/1.1" 200 -
+2015-07-23 13:05:57,753 6756 INFO paraisonline werkzeug: 127.0.0.1 - - [23/Jul/2015 13:05:57] "POST /web/dataset/call_kw/res.users/read HTTP/1.1" 200 -
+2015-07-23 13:05:57,822 6756 INFO paraisonline werkzeug: 127.0.0.1 - - [23/Jul/2015 13:05:57] "POST /web/action/load HTTP/1.1" 200 -
+2015-07-23 13:05:58,092 6756 INFO ? werkzeug: 127.0.0.1 - - [23/Jul/2015 13:05:58] "GET /web/static/src/font/entypo-webfont.ttf HTTP/1.1" 304 -
+2015-07-23 13:05:58,108 6756 INFO ? werkzeug: 127.0.0.1 - - [23/Jul/2015 13:05:58] "GET /web/static/lib/fontawesome/fonts/fontawesome-webfont.woff?v=4.2.0 HTTP/1.1" 200 -
+2015-07-23 13:05:58,108 6756 INFO ? werkzeug: 127.0.0.1 - - [23/Jul/2015 13:05:58] "GET /web/static/src/font/mnmliconsv21-webfont.ttf HTTP/1.1" 304 -
+2015-07-23 13:05:58,124 6756 INFO paraisonline werkzeug: 127.0.0.1 - - [23/Jul/2015 13:05:58] "POST /im_chat/init HTTP/1.1" 200 -
+2015-07-23 13:05:58,167 6756 INFO paraisonline werkzeug: 127.0.0.1 - - [23/Jul/2015 13:05:58] "POST /web/dataset/call_kw/ir.module.module/fields_view_get HTTP/1.1" 200 -
+2015-07-23 13:05:58,194 6756 INFO paraisonline werkzeug: 127.0.0.1 - - [23/Jul/2015 13:05:58] "POST /web/dataset/call_kw/ir.module.module/fields_view_get HTTP/1.1" 200 -
+2015-07-23 13:05:58,446 6756 INFO paraisonline werkzeug: 127.0.0.1 - - [23/Jul/2015 13:05:58] "POST /web/dataset/call_kw/ir.filters/get_filters HTTP/1.1" 200 -
+2015-07-23 13:05:58,503 6756 INFO paraisonline werkzeug: 127.0.0.1 - - [23/Jul/2015 13:05:58] "POST /web/dataset/call_kw/ir.module.module/fields_get HTTP/1.1" 200 -
+2015-07-23 13:05:58,510 6756 INFO paraisonline werkzeug: 127.0.0.1 - - [23/Jul/2015 13:05:58] "GET /web/binary/image?model=res.users&field=image_small&id=1 HTTP/1.1" 200 -
+2015-07-23 13:05:58,874 6756 INFO paraisonline werkzeug: 127.0.0.1 - - [23/Jul/2015 13:05:58] "POST /web/dataset/search_read HTTP/1.1" 200 -
