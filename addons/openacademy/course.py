@@ -20,30 +20,14 @@
 #
 ##############################################################################
 
-{
-    'name': 'Open Academy',
-    'version': '1.0',
-    'depends': ['base'],
-    'author': 'Miguel Paraíso',
-    'category': 'Test',
-    'description': """
-    Módulo Open Academy para gestionar cursos
-    - cursos
-    - sesiones
-    - registro de asistentes
-    """,
-    'data': [
-             'openacademy_view.xml' # Todos los demas archivos de datos excepto datos demo y tests
-             ],
-    'demo': [
-             # Archivos XML o YAML que contienen datos demo
-             ],
-    'tests': [
-              # Archivos XML o YAML que contienen tests
-              ],
-    'instalable': True,
-    'auto_install': False,
-    # 'certificate' : 'certificate',
-}
+from openerp.osv import osv, fields
 
-
+class course(osv.Model):
+    _name = 'openacademy.course'
+    _rec_name = 'Course'
+    _description = 'Courses of the academy'
+    _columns = {
+        'name': fields.char(string='Title', size=64, required=True, translate=True),
+        'description': fields.text(string='Description', size=256, translate=True),
+    }
+course() # Para cerrar la clase
