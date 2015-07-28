@@ -22,12 +22,12 @@
 
 from openerp.osv import osv, fields
 
-class course(osv.Model):
+class course(osv.osv):
     _name = 'openacademy.course'
-    _rec_name = 'Course'
     _description = 'Courses of the academy'
+    _order = 'id'
     _columns = {
         'name': fields.char(string='Title', size=64, required=True, translate=True),
         'description': fields.text(string='Description', size=256, translate=True),
     }
-course() # Para cerrar la clase
+# course() # Para cerrar la clase (ya no es obligatorio)

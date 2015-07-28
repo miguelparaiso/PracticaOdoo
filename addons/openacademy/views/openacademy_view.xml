@@ -3,7 +3,14 @@
 
     <!-- Esto da comienzo a un comentario... y esta otra etiqueta lo cierra -->
 
+    <!-- Todos los datos de OPenERP se registran entre las etiquetas /openerp/data
+		... en xml: <openerp> <data> </data> </openerp> -->
+
+	<!-- En XML la identación es opcional. Pero de todas formas intenta escribir
+		el código para que sea legible por humanos -->
+
     <data>
+
         <!-- Action windows -->
         <!-- La siguiente eqtiqueta es una definicion de un action window.
         Básicamente, creamos un registro en el modelo ir.actions.act_window -->
@@ -17,6 +24,30 @@
                 <p class="oe_view_nocontent_create">Create the first course</p>
             </field>
         </record>
+
+        <!--  Esta es la declaración de formulario -->
+
+		<record model="ir.ui.view" id="course_form_view">
+			<field name="name">course.form</field>
+			<field name="model">openacademy.course</field>
+			<field name="arch" type="xml">
+				<form string="Course Form">
+					<!-- Nota: Por defecto los campos se adaptan a 4 columnas
+					... pero podemos definir colspan=4 para que un campo y su label cojan toda la pantalla
+						y así mejorar la visualización del formulario -->
+					<field name="name" colspan="4"/>
+					<!-- "notebook" .... sería un contenedor de solapas -->
+					<notebook colspan="4">
+						<page string="Description">
+							<field name="description" colspan="4" nolabel="1" />
+						</page>
+						<page string="About">
+							<label string="This is an example of notebooks" />
+						</page>
+					</notebook>
+				</form>
+			</field>
+		</record>
 
         <!-- Menu Items -->
 
