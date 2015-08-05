@@ -20,5 +20,28 @@
 #
 ##############################################################################
 
-import course
-import partner
+{
+    'name': 'Disc Management',
+    'version': '1.0',
+    'depends': ['base'],
+    'author': 'Miguel Paraíso',
+    'category': 'Test',
+    'description': """
+    Módulo Disc Management para gestionar discos
+    - discos
+    - autores
+    - canciones
+    """,
+    'data': [
+             'views\discmanagement_view.xml' # Todos los demas archivos de datos excepto datos demo y tests
+             ],
+    'demo': [
+             # Archivos XML o YAML que contienen datos demo
+             ],
+    'tests': [
+              # Archivos XML o YAML que contienen tests
+              ],
+    'instalable': True,
+    'auto_install': False,
+    # 'certificate' : 'certificate',
+}

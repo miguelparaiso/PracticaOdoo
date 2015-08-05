@@ -20,5 +20,13 @@
 #
 ##############################################################################
 
-import course
-import partner
+from openerp.osv import osv, fields
+
+class song(osv.osv):
+    _name = 'discmanagement.song'
+    _description = 'Songs'
+    _columns = {
+        'name': fields.char('Title', size=64, required=True, translate=True),
+        'active': fields.boolean('Active', help="If the active field is set to False, it will allow you to hide the song without removing it."),
+        'track_time': fields.float('Track time'),
+    }

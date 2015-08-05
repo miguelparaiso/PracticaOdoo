@@ -20,5 +20,6 @@
 #
 ##############################################################################
 
-import course
-import partner
+import disc
+import author
+import song

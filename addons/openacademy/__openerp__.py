@@ -33,7 +33,8 @@
     - registro de asistentes
     """,
     'data': [
-             'views/openacademy_view.xml' # Todos los demas archivos de datos excepto datos demo y tests
+             'views/openacademy_view.xml', # Todos los demas archivos de datos excepto datos demo y tests
+             'views/partner.xml',
              ],
     'demo': [
              # Archivos XML o YAML que contienen datos demo

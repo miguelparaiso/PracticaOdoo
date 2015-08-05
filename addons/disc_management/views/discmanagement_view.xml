@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+    <data>
+
+        <!-- DISC -->
+        <record model="ir.actions.act_window" id="disc_list_action">
+            <field name="name">Disc</field>
+            <field name="res_model">discmanagement.disc</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first disc</p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="disc_tree_view">
+			<field name="name">disc.tree</field>
+			<field name="model">discmanagement.disc</field>
+			<field name="arch" type="xml">
+                <tree string="Disc">
+                    <field name="name" />
+                    <field name="publish_date" />
+                    <field name="active" />
+                </tree>
+			</field>
+		</record>
+
+        <record model="ir.ui.view" id="disc_form_view">
+			<field name="name">disc.form</field>
+			<field name="model">discmanagement.disc</field>
+			<field name="arch" type="xml">
+				<form string="Disc Form">
+                    <h2><label for="name" class="oe_edit_only" /></h2>
+                    <h2><field name="name" class="oe_horizontal_separator" /></h2>
+                    <group>
+                        <field name="publish_date"/>
+                        <field name="active"/>
+                        <field name="description"/>
+                    </group>
+				</form>
+			</field>
+		</record>
+
+        <!-- Author -->
+        <record model="ir.actions.act_window" id="author_list_action">
+            <field name="name">Author</field>
+            <field name="res_model">discmanagement.author</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first author</p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="author_tree_view">
+			<field name="name">author.tree</field>
+			<field name="model">discmanagement.author</field>
+			<field name="arch" type="xml">
+                <tree string="Author">
+                    <field name="name" />
+                    <field name="active" />
+                </tree>
+			</field>
+		</record>
+
+        <record model="ir.ui.view" id="author_form_view">
+			<field name="name">author.form</field>
+			<field name="model">discmanagement.author</field>
+			<field name="arch" type="xml">
+				<form string="Author Form">
+					<h2><label for="name" class="oe_edit_only" /></h2>
+                    <h2><field name="name" class="oe_horizontal_separator" /></h2>
+                    <group>
+                        <field name="active"/>
+                    </group>
+				</form>
+			</field>
+		</record>
+
+        <!-- Song -->
+        <record model="ir.actions.act_window" id="song_list_action">
+            <field name="name">Song</field>
+            <field name="res_model">discmanagement.song</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first song</p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="song_tree_view">
+			<field name="name">song.tree</field>
+			<field name="model">discmanagement.song</field>
+			<field name="arch" type="xml">
+                <tree string="Song">
+                    <field name="name" />
+                    <field name="track_time" />
+                    <field name="active" />
+                </tree>
+			</field>
+		</record>
+
+        <record model="ir.ui.view" id="song_form_view">
+			<field name="name">song.form</field>
+			<field name="model">discmanagement.song</field>
+			<field name="arch" type="xml">
+				<form string="Song Form">
+					<h2><label for="name" class="oe_edit_only" /></h2>
+                    <h2><field name="name" class="oe_horizontal_separator" /></h2>
+                    <group>
+                        <field name="active"/>
+                    </group>
+                    <label for="track_time" class="oe_inline"/>
+                    <field name="track_time" colspan="4" widget="float_time" class="oe_inline" />
+				</form>
+			</field>
+		</record>
+
+        <!-- Menu Items -->
+        <menuitem id="main_discmanagement_menu" name="Disc Management" />
+
+            <menuitem id="discmanagement_menu" name="Disc Management" parent="main_discmanagement_menu" />
+
+                <menuitem id="disc_menu" name="Disc" parent="discmanagement_menu" action="disc_list_action" />
+                <menuitem id="author_menu" name="Author" parent="discmanagement_menu" action="author_list_action" />
+                <menuitem id="song_menu" name="Song" parent="discmanagement_menu" action="song_list_action" />
+
+    </data>
+</openerp>

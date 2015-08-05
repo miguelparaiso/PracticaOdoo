@@ -15,6 +15,7 @@
         <!-- La siguiente eqtiqueta es una definicion de un action window.
         Básicamente, creamos un registro en el modelo ir.actions.act_window -->
 
+        <!-- COURSES -->
         <record model="ir.actions.act_window" id="course_list_action">
             <field name="name">Courses</field>
             <field name="res_model">openacademy.course</field>
@@ -25,47 +26,92 @@
             </field>
         </record>
 
-        <!--  Esta es la declaración de formulario -->
+        <!--  Esta es la declaración de la vista tree -->
+        <record model="ir.ui.view" id="course_tree_view">
+			<field name="name">course.tree</field>
+			<field name="model">openacademy.course</field>
+			<field name="arch" type="xml">
+                <tree string="Courses">
+                    <field name="name" />
+                    <field name="description" />
+                </tree>
+			</field>
+		</record>
 
+        <!--  Esta es la declaración de formulario -->
 		<record model="ir.ui.view" id="course_form_view">
 			<field name="name">course.form</field>
 			<field name="model">openacademy.course</field>
 			<field name="arch" type="xml">
-				<form string="Course Form">
-					<!-- Nota: Por defecto los campos se adaptan a 4 columnas
-					... pero podemos definir colspan=4 para que un campo y su label cojan toda la pantalla
-						y así mejorar la visualización del formulario -->
-					<field name="name" colspan="4"/>
-					<!-- "notebook" .... sería un contenedor de solapas -->
-					<notebook colspan="4">
-						<page string="Description">
-							<field name="description" colspan="4" nolabel="1" />
-						</page>
-						<page string="About">
-							<label string="This is an example of notebooks" />
-						</page>
-					</notebook>
+				<form string="Song Form">
+					<h2><label for="name" class="oe_edit_only" /></h2>
+                    <h2><field name="name" class="oe_horizontal_separator" /></h2>
+                    <group>
+                        <field name="description"/>
+                    </group>
+				</form>
+			</field>
+		</record>
+
+
+        <!-- SESSIONS -->
+        <record model="ir.actions.act_window" id="session_list_action">
+            <field name="name">Sessions</field>
+            <field name="res_model">openacademy.session</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first session</p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="session_tree_view">
+			<field name="name">session.tree</field>
+			<field name="model">openacademy.session</field>
+			<field name="arch" type="xml">
+                <tree string="Sessions">
+                    <field name="name" />
+                    <field name="start_date" />
+                    <field name="duration" />
+                    <field name="seats" />
+                </tree>
+			</field>
+		</record>
+
+        <record model="ir.ui.view" id="session_form_view">
+			<field name="name">session.form</field>
+			<field name="model">openacademy.session</field>
+			<field name="arch" type="xml">
+				<form string="Session Form">
+					<h2><label for="name" class="oe_edit_only" /></h2>
+                    <h2><field name="name" class="oe_horizontal_separator" /></h2>
+                    <group>
+                        <field name="start_date"/>
+                        <field name="duration"/>
+                        <field name="seats"/>
+                    </group>
 				</form>
 			</field>
 		</record>
 
         <!-- Menu Items -->
-
         <menuitem id="main_openacademy_menu" name="Open Academy" />
 
         <!-- Antes de usar un atributo action...
              es necesario definir un menú de primer nivel en la parte izquierda -->
 
-        <menuitem id="openacademy_menu" name="Open Academy" parent="main_openacademy_menu" />
+            <menuitem id="openacademy_menu" name="Open Academy" parent="main_openacademy_menu" />
 
-        <!-- El siguiente menu item debe aparecer *después* de su menu padre y *después* su acción correspondiente -->
+                <!-- El siguiente menu item debe aparecer *después* de su menu padre y *después* su acción correspondiente -->
 
-        <menuitem id="courses_menu" name="Courses" parent="openacademy_menu" action="course_list_action" />
+                <menuitem id="courses_menu" name="Courses" parent="openacademy_menu" action="course_list_action" />
 
-        <!-- id de ubicación completa:
-            action="openacademy.course_list_action"
-            Esto no es requerido cuando estamos dentro del mismo módulo
-        -->
+                <menuitem id="sessions_menu" name="Sessions" parent="openacademy_menu" action="session_list_action" />
+
+                <!-- id de ubicación completa:
+                    action="openacademy.course_list_action"
+                    Esto no es requerido cuando estamos dentro del mismo módulo
+                -->
 
     </data>
 </openerp>

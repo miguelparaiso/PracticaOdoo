@@ -20,5 +20,15 @@
 #
 ##############################################################################
 
-import course
-import partner
+from openerp.osv import osv, fields
+
+class partner(osv.osv):
+    # Heredado de res.partner
+
+    _inherit = 'res.partner'
+    _columns = {
+        'instructor': fields.boolean(string="Instructor"),
+    }
+    _defaults = {
+        'instructor': False,
+    }

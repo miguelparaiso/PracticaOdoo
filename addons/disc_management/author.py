@@ -20,5 +20,14 @@
 #
 ##############################################################################
 
-import course
-import partner
+from openerp.osv import osv, fields
+
+class author(osv.osv):
+    _name = 'discmanagement.author'
+    _description = 'Authors'
+    _columns = {
+        'name': fields.char('Name', size=64, required=True, translate=True),
+        'active': fields.boolean('Active', help="If the active field is set to False, it will allow you to hide the author without removing it."),
+    }
+
+
