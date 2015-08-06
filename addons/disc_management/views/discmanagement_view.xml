@@ -5,7 +5,7 @@
 
         <!-- DISC -->
         <record model="ir.actions.act_window" id="disc_list_action">
-            <field name="name">Disc</field>
+            <field name="name">Discs</field>
             <field name="res_model">discmanagement.disc</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
@@ -14,18 +14,20 @@
             </field>
         </record>
 
+        <!-- Vista tree Disc -->
         <record model="ir.ui.view" id="disc_tree_view">
 			<field name="name">disc.tree</field>
 			<field name="model">discmanagement.disc</field>
 			<field name="arch" type="xml">
-                <tree string="Disc">
+                <tree string="Discs">
                     <field name="name" />
-                    <field name="publish_date" />
+                    <field name="year" />
                     <field name="active" />
                 </tree>
 			</field>
 		</record>
 
+        <!-- Vista form Disc -->
         <record model="ir.ui.view" id="disc_form_view">
 			<field name="name">disc.form</field>
 			<field name="model">discmanagement.disc</field>
@@ -33,10 +35,21 @@
 				<form string="Disc Form">
                     <h2><label for="name" class="oe_edit_only" /></h2>
                     <h2><field name="name" class="oe_horizontal_separator" /></h2>
-                    <group>
-                        <field name="publish_date"/>
+                    <group colspan="4">
+                        <field name="year"/>
+                        <field name="format"/>
                         <field name="active"/>
-                        <field name="description"/>
+                        <field name="author_id" />
+                    </group>
+                    <separator string="Disc Description" />
+                    <group colspan="4" col="6">
+                        <group colspan="2">
+							<field name="description" nolabel="1" />
+							<group colspan="4" col="1">
+								<separator string="Songs in the Disc" />
+								<field name="song_id" nolabel="1" />
+							</group>
+						</group>
                     </group>
 				</form>
 			</field>
@@ -44,7 +57,7 @@
 
         <!-- Author -->
         <record model="ir.actions.act_window" id="author_list_action">
-            <field name="name">Author</field>
+            <field name="name">Authors</field>
             <field name="res_model">discmanagement.author</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
@@ -53,34 +66,38 @@
             </field>
         </record>
 
+        <!-- Vista tree Author -->
         <record model="ir.ui.view" id="author_tree_view">
 			<field name="name">author.tree</field>
 			<field name="model">discmanagement.author</field>
 			<field name="arch" type="xml">
-                <tree string="Author">
+                <tree string="Authors">
                     <field name="name" />
                     <field name="active" />
                 </tree>
 			</field>
 		</record>
 
+        <!-- Vista form Author -->
         <record model="ir.ui.view" id="author_form_view">
 			<field name="name">author.form</field>
 			<field name="model">discmanagement.author</field>
 			<field name="arch" type="xml">
 				<form string="Author Form">
-					<h2><label for="name" class="oe_edit_only" /></h2>
+                    <h2><label for="name" class="oe_edit_only" /></h2>
                     <h2><field name="name" class="oe_horizontal_separator" /></h2>
-                    <group>
+                    <group colspan="4" col="6">
                         <field name="active"/>
                     </group>
+                    <separator string="Discography of the author" />
+                    <field name="disc_id" colspan="4" nolabel="1" />
 				</form>
 			</field>
 		</record>
 
         <!-- Song -->
         <record model="ir.actions.act_window" id="song_list_action">
-            <field name="name">Song</field>
+            <field name="name">Songs</field>
             <field name="res_model">discmanagement.song</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
@@ -89,18 +106,20 @@
             </field>
         </record>
 
+        <!-- Vista tree Song -->
         <record model="ir.ui.view" id="song_tree_view">
 			<field name="name">song.tree</field>
 			<field name="model">discmanagement.song</field>
 			<field name="arch" type="xml">
                 <tree string="Song">
                     <field name="name" />
-                    <field name="track_time" />
+                    <field name="track_time" widget="float_time" />
                     <field name="active" />
                 </tree>
 			</field>
 		</record>
 
+        <!-- Vista form Song -->
         <record model="ir.ui.view" id="song_form_view">
 			<field name="name">song.form</field>
 			<field name="model">discmanagement.song</field>
@@ -108,23 +127,29 @@
 				<form string="Song Form">
 					<h2><label for="name" class="oe_edit_only" /></h2>
                     <h2><field name="name" class="oe_horizontal_separator" /></h2>
-                    <group>
-                        <field name="active"/>
-                    </group>
+                    <field name="active"/>
                     <label for="track_time" class="oe_inline"/>
                     <field name="track_time" colspan="4" widget="float_time" class="oe_inline" />
+                    <separator string="Discs" />
+                    <group colspan="4">
+                        <field name="disc_id" colspan="4" nolabel="1"/>
+                    </group>
 				</form>
 			</field>
 		</record>
 
-        <!-- Menu Items -->
-        <menuitem id="main_discmanagement_menu" name="Disc Management" />
+        <!-- Menu -->
+        <menuitem id="discmanagement_menu" name="Disc Management" />
 
-            <menuitem id="discmanagement_menu" name="Disc Management" parent="main_discmanagement_menu" />
+                <!-- Submenus -->
+                <menuitem id="disc_group" name="Discs" parent="discmanagement_menu" />
+                    <menuitem id="disc_menu" name="Discs" parent="disc_group" action="disc_list_action" />
 
-                <menuitem id="disc_menu" name="Disc" parent="discmanagement_menu" action="disc_list_action" />
-                <menuitem id="author_menu" name="Author" parent="discmanagement_menu" action="author_list_action" />
-                <menuitem id="song_menu" name="Song" parent="discmanagement_menu" action="song_list_action" />
+                <menuitem id="author_group" name="Authors" parent="discmanagement_menu" />
+                    <menuitem id="author_menu" name="Authors" parent="author_group" action="author_list_action" />
+
+                <menuitem id="song_group" name="Songs" parent="discmanagement_menu" />
+                    <menuitem id="song_menu" name="Songs" parent="song_group" action="song_list_action" />
 
     </data>
 </openerp>

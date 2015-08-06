@@ -27,6 +27,8 @@ class author(osv.osv):
     _description = 'Authors'
     _columns = {
         'name': fields.char('Name', size=64, required=True, translate=True),
+        'disc_id':fields.many2many('discmanagement.disc','disc_author','author_id','disc_id',string='Discs'),
+        'song_id':fields.one2many('discmanagement.song','author_id',string='Singing songs'),
         'active': fields.boolean('Active', help="If the active field is set to False, it will allow you to hide the author without removing it."),
     }
 
