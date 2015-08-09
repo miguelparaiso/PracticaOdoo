@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+    <data>
+
+        <!-- BOOK -->
+        <record model="ir.actions.act_window" id="book_list_action">
+            <field name="name">Books</field>
+            <field name="res_model">bookstore.book</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first book</p>
+            </field>
+        </record>
+
+        <!-- Vista tree book -->
+        <record model="ir.ui.view" id="book_tree_view">
+			<field name="name">book.tree</field>
+			<field name="model">bookstore.book</field>
+			<field name="arch" type="xml">
+                <tree string="book">
+                    <field name="name" colspan="2"/>
+                    <field name="author_id" colspan="2"/>
+                    <field name="editorial" colspan="2"/>
+                    <field name="edition_date" colspan="2"/>
+                    <field name="language" colspan="2"/>
+                    <field name="active" colspan="2"/>
+                </tree>
+			</field>
+		</record>
+
+        <!-- Vista form book -->
+        <record model="ir.ui.view" id="book_form_view">
+			<field name="name">book.form</field>
+			<field name="model">bookstore.book</field>
+			<field name="arch" type="xml">
+				<form string="Book Form">
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="edition_date"/>
+                            <field name="language"/>
+                            <field name="isbn"/>
+                            <field name="book"/>
+                        </group>
+                        <group>
+                            <field name="author_id"/>
+                            <field name="ebook"/>
+                            <field name="pagenumber"/>
+                            <field name="editorial"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Customer">
+                            <!--<field name="customer" colspan="4" nolabel="1"/>-->
+                        </page>
+                        <page string="Extra information">
+                            <field name="extra_information" colspan="4" nolabel="1"/>
+                        </page>
+                    </notebook>
+                    <group>
+                        <group>
+                            <group>
+                                <field name="state" nolabel="1"/>
+                            </group>
+                            <group></group>
+                        </group>
+                        <group></group>
+                    </group>
+				</form>
+			</field>
+		</record>
+
+        <!-- AUTHOR -->
+        <record model="ir.actions.act_window" id="author_list_action">
+            <field name="name">Authors</field>
+            <field name="res_model">bookstore.author</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first author</p>
+            </field>
+        </record>
+
+        <!-- Vista tree Author -->
+        <record model="ir.ui.view" id="author_tree_view">
+			<field name="name">author.tree</field>
+			<field name="model">bookstore.author</field>
+			<field name="arch" type="xml">
+                <tree string="Authors">
+                    <field name="name" />
+                    <field name="active" />
+                </tree>
+			</field>
+		</record>
+
+        <!-- Vista form Author -->
+        <record model="ir.ui.view" id="author_form_view">
+			<field name="name">author.form</field>
+			<field name="model">bookstore.author</field>
+			<field name="arch" type="xml">
+				<form string="Author Form">
+                        <field name="name" colspan="2"/>
+                        <field name="active" colspan="2"/>
+                    <group colspan="4" col="1">
+                        <field name="book_id" nolabel="1" />
+                    </group>
+				</form>
+			</field>
+		</record>
+
+        <!-- Menu -->
+        <menuitem id="bookstore_menu" name="Bookstore" />
+
+                <!-- Submenus -->
+                <menuitem id="book_group" name="Bookstore Group" parent="bookstore_menu" />
+                    <menuitem id="book_menu" name="Books" parent="book_group" action="book_list_action" />
+
+                <menuitem id="author_group" name="Authors" parent="bookstore_menu"/>
+                    <menuitem id="author_menu" name="Authors" parent="author_group" action="author_list_action" />
+
+    </data>
+</openerp>

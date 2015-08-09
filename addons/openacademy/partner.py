@@ -22,13 +22,18 @@
 
 from openerp.osv import osv, fields
 
-class partner(osv.osv):
-    # Heredado de res.partner
-
+class Partner(osv.Model):
+    """ Heredado de res.partner"""
+    
+    # la línea de arriba es la manera de Python para documentar tus objetos (como las clases)
+    
     _inherit = 'res.partner'
+    
     _columns = {
-        'instructor': fields.boolean(string="Instructor"),
-    }
+                # Acabamos de agregar una nueva columna en res.partner   
+                'instructor' : fields.boolean(string="Instructor"),
+                }
+    
     _defaults = {
-        'instructor': False,
-    }
+               'instructor' : False,
+               }

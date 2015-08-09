@@ -88,6 +88,7 @@
                     <h2><field name="name" class="oe_horizontal_separator" /></h2>
                     <group colspan="4" col="6">
                         <field name="active"/>
+                        <button name="button_ok" string="Mostrar mensaje" type="object" icon="gtk-ok"/>
                     </group>
                     <separator string="Discography of the author" />
                     <field name="disc_id" colspan="4" nolabel="1" />
@@ -130,6 +131,10 @@
                     <field name="active"/>
                     <label for="track_time" class="oe_inline"/>
                     <field name="track_time" colspan="4" widget="float_time" class="oe_inline" />
+                    <separator string="Author" />
+                    <group colspan="4">
+                        <field name="author_id" colspan="4" nolabel="1"/>
+                    </group>
                     <separator string="Discs" />
                     <group colspan="4">
                         <field name="disc_id" colspan="4" nolabel="1"/>

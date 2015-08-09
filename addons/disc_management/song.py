@@ -28,7 +28,7 @@ class song(osv.osv):
     _columns = {
         'name': fields.char('Title', size=64, required=True, translate=True),
         'author_id':fields.many2one('discmanagement.author',ondelete='set null',string='Author who sings this song'),
-        'disc_id':fields.many2many('discmanagement.disc','disc_song','song_id','disc_id',string='Disc where this song is'),
+        'disc_id':fields.many2many('discmanagement.disc','disc_song','song_id','disc_id',string='Disc'),
         'track_time': fields.float('Track time'),
         'active': fields.boolean('Active', help="If the active field is set to False, it will allow you to hide the song without removing it."),
     }

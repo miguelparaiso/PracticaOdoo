@@ -1,9 +1,7 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2010-2014 Aselcis Consulting, S.L. (https://www.aselcis.com). All Rights Reserved
-#
+#    Copyright Eezee-It
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -16,8 +14,24 @@
 #    GNU General Public License for more details.
 #
 #    You should have received a copy of the GNU General Public License
-#    along with this program.  If not, see http://www.gnu.org/licenses/.
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+{
+    'name': 'Worldline SIPS Payment Acquiring  for online payments',
+    'version': '1.0',
+    'author': 'Eezee-It',
+    'category': 'Hidden',
+    'description': """
+Worldline SIPS Payment Acquirer for online payments
 
-import mimodulo
+Works with Worldline keys version 2.0, contains implementation of
+payments acquirer using Worldline SIPS.""",
+    'depends': ['payment'],
+    'data': [
+        'views/sips.xml',
+        'views/payment_acquirer.xml',
+        'data/sips.xml',
+    ],
+    'installable': True,
+}
