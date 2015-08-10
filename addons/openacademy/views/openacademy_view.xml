@@ -85,11 +85,11 @@
 						<separator string="Schedule" colspan="2" />
 						<field name="start_date" />
 						<field name="duration" />
-						<field name="seats" />
+						<field name="seats" on_change="onchange_taken_seats(seats,attendee_ids)"/>
 						<field name="taken_seats_percent" widget="progressbar" />
 					</group>
 					<separator string="Atendees" colspan="4" />
-					<field name="attendee_ids" colspan="4" nolabel="1">
+					<field name="attendee_ids" colspan="4" nolabel="1" on_change="onchange_taken_seats(seats,attendee_ids)">
 						<!-- El atributo "editable" ajusta la posición de los nuevos elementos 
 							de la lista -->
 						<tree string="" editable="bottom">
