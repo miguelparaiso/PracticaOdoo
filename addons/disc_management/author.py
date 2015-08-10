@@ -32,4 +32,7 @@ class author(osv.osv):
         'active': fields.boolean('Active', help="If the active field is set to False, it will allow you to hide the author without removing it."),
     }
 
+    def button_ok(self, cr, uid, ids, *args):
+        print "Boton Ok pulsado..."
+        return True
 

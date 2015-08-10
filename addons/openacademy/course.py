@@ -22,47 +22,64 @@
 
 from openerp.osv import osv, fields
 
-class course(osv.osv):
-    _name = 'openacademy.course'
-    _description = 'Courses of the academy'
+class course(osv.Model):
+    _name = "openacademy.course"
+    
     _columns = {
-        'name': fields.char(string='Title', size=64, required=True, translate=True),
-        'description': fields.text(string='Description', size=256, translate=True),
+                'name': fields.char(string="Title", size=64, required=True),
+                'description': fields.text(string="Description"),
+                
+                # Campos relacionales
+                # 'set null' reinicia responsible_id a undefined si el responsable es eliminado
+                'responsible_id': fields.many2one('res.users', ondelete='set null',string='Responsible', select=True ),
+                'session_ids': fields.one2many('openacademy.session','course_id', string="Sessions"),
+                }
 
-        # Campos relacionales
-        # 'set_null' reinicia responsible_id a undefined si el responsable es eliminado
-        'responsible_id': fields.many2one('res.users', ondelete='set null',string='Responsible', select=True),
-        'sessions_ids': fields.one2many('openacademy.session', 'course_id', string='Sessions'),
-    }
-# course() # Para cerrar la clase (ya no es obligatorio)
-
-
-class session(osv.osv):
-    _name = 'openacademy.session'
-    _description = 'Sessions of the course'
+class Session(osv.Model):
+    _name = "openacademy.session"
+    
+    def _get_taken_seats_percent(self, seats, attendee_list):
+        # Prevenir que la división entre 0 de error
+        try:
+            # Se necesita al menos un número decimal para obtener un valor real
+            return (100.0 * len(attendee_list)) / seats
+        except ZeroDivisionError:
+            return 0.0
+        
+    def _taken_seats_percent(self, cr, uid, ids, field, arg, context=None):
+        # Calcular el porcentaje que se reserva
+        result = {} 
+        for session in self.browse(cr, uid, ids, context=context):
+            result[session.id] = self._get_taken_seats_percent(session.seats, session.attendee_ids)
+        return result
+        
+    
     _columns = {
-        'name': fields.char(string='Title', size=64, required=True, translate=True),
-        'start_date': fields.date(string='Start date'),
-        'duration': fields.float(string='Duration', digits=(6, 2), help="Duration in days"),
-        'seats': fields.integer(string='Seats'),
+                'name': fields.char(string="Name", size=256, required=True),
+                'start_date': fields.date(string="Start date"),
+                'duration': fields.float(string="Duration", digits=(6,2), help="Duration in days"),
+                'seats': fields.integer(string="Number of seats"), 
+                
+                # Campos relacionales
+                # 'cascade' destruye la sesión en caso de que course_id sea eliminado
+                'instructor_id': fields.many2one('res.partner', string="Instructor"),
+                # Ejercicio 3 domains 
+                #'instructor_id': fields.many2one('res.partner', string="Instructor", domain=[('instructor','=',True),('category_id.name','ilike','Teacher')]),
+                'course_id': fields.many2one('openacademy.course', ondelete='cascade', string="Course", required=True),
+                'attendee_ids': fields.one2many('openacademy.attendee','session_id', string="Attendees"), 
+                'taken_seats_percent': fields.function(_taken_seats_percent, type='float', string='Taken seats'),       
+                }
+    
 
-        # Campor relacionales
-        # 'cascade' destruye la sesión en caso de que course_id sea eliminado
-        'instructor_id': fields.many2one('res.partner',string='Instructor'),
-        'course_id': fields.many2one('res.partner', ondelete='cascade', string='Course', required=True),
-        'attendee_ids': fields.one2many('openacademy.attendee', 'session_id', string='Attendees')
-    }
-
-
-class attendee(osv.osv):
-    _name = 'openacademy.attendee'
-
+class Attendee(osv.Model):
+    _name = "openacademy.attendee"
+    
     # _rec_name redefine el campo para llegar a ver el registro en otro objeto
-    # En este caso, se reinicia el nombre del partner como nombre del asistente
+    # En este caso, se imprimirá el nombre del partner como nombre del asistente
+    
     _rec_name = 'partner_id'
-    _description = 'Attendees of the session'
-    _columns = {
-        'name': fields.char(string='Title', size=64, translate=True),
-        'partner_id': fields.many2one('res.partner',string='Partner'),
-        'session_id': fields.many2one('openacademy.session', string='Session', required=True, ondelete='cascade'),
-    }
+    
+    _columns = {         
+                'partner_id': fields.many2one('res.partner', string="Partner"),
+                'session_id': fields.many2one('openacademy.session', string="Session", required=True, ondelete='cascade'),               
+                }
