@@ -21,24 +21,26 @@
 ##############################################################################
 
 {
-    'name': 'mimodulo',
+    'name': 'Book Store',
     'version': '1.0',
     'depends': ['base'],
-    'author': 'Miguel Paraiso',
-    'category': 'category',
+    'author': 'Miguel Paraíso',
+    'category': 'Test',
     'description': """
-    Texto descripcion
+    Módulo Book Store para gestionar libros
+    - autores
+    - libros
     """,
     'data': [
-             'mimodulo_view.xml' # Todos los demas archivos
+             'views/bookstore_view.xml' # Todos los demas archivos de datos excepto datos demo y tests
              ],
     'demo': [
-             # Archivos que contienen datos demo
+             # Archivos XML o YAML que contienen datos demo
              ],
     'tests': [
-              # Archivos que contienen tests
+              # Archivos XML o YAML que contienen tests
               ],
     'instalable': True,
     'auto_install': False,
-    # 'certificate' : 'nºcertificado'
+    # 'certificate' : 'certificate',
 }
