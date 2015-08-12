@@ -1,5 +1,7 @@
-<!-- onchange en xml -->
 
-<field name="amount" onchange="onchangeprice(unit_price,amount)"/>
-<field name="unit_price" on_change="onchangeprice(unit_price,amount)"/>
-<field name="price" on_change="onchangeprice(unit_price,amount)"/>
+<!--  onchange en xml -->
+
+<field name="amount" on_change="onchange_price(unit_price,amount)" />
+<field name="unit_price" on_change="onchange_price(unit_price,amount)" />
+<field name="price"/>
+
