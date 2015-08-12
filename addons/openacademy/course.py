@@ -36,7 +36,7 @@ class course(osv.Model):
         if others_count > 0:
             new_name = "%s (%s)" % (new_name, others_count+1)
         default['name'] = new_name
-        return super(Course, self).copy(cr, uid, id , default, context=context)
+        return super(course, self).copy(cr, uid, id , default, context=context)
     
     
     _columns = {
