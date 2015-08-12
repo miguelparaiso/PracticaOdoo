@@ -53,7 +53,12 @@ class Session(osv.Model):
             result[session.id] = self._get_taken_seats_percent(session.seats, session.attendee_ids)
         return result
         
-    
+    def onchange_taken_seats(self, cr, uid, ids, seats, attendee_ids):
+        attendee_records = self.resolve_2many_commands(cr, uid, 'attendee_ids', attendee_ids, ['id']) #Importante funcion
+        res = {
+            'value' : {'taken_seats_percent' : self._get_taken_seats_percent(seats, attendee_records)}
+        }
+
     _columns = {
                 'name': fields.char(string="Name", size=256, required=True),
                 'start_date': fields.date(string="Start date"),

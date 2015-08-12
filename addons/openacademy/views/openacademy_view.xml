@@ -85,7 +85,7 @@
 						<separator string="Schedule" colspan="2" />
 						<field name="start_date" />
 						<field name="duration" />
-						<field name="seats" />
+						<field name="seats" on_change="onchange_taken_seats"/>
 						<field name="taken_seats_percent" widget="progressbar" />
 					</group>
 					<separator string="Atendees" colspan="4" />
