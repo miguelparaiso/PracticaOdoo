@@ -1,9 +1,10 @@
+
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2012-2015 Aselcis Consulting, S.L. (https://www.aselcis.com). All Rights Reserved
-#
+#    Avanzosc, Open Source Management Solution    
+#    Copyright (C) 2004-2010 Juan Ignacio Ubeda (http://www.avanzosc.com). All Rights Reserved
+#    
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by

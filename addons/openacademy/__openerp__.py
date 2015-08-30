@@ -1,9 +1,10 @@
+
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2012-2015 Aselcis Consulting, S.L. (https://www.aselcis.com). All Rights Reserved
-#
+#    Avanzosc, Open Source Management Solution    
+#    Copyright (C) 2004-2010 Juan Ignacio Ubeda (http://www.avanzosc.com). All Rights Reserved
+#    
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -21,30 +22,31 @@
 ##############################################################################
 
 {
-    'name': 'Open Academy',
-    'version': '1.0',
-    'depends': ['base'],
-    'author': 'Miguel Paraíso',
-    'category': 'Test',
-    'description': """
-    Módulo Open Academy para gestionar cursos
+    "name": "Open Academy",
+    "version": "1.0",
+    "depends": ["base"],
+    "author": "Juani",
+    "category": "Test",
+    "description": """
+    Modulo Open Academy para gestionar cursos
     - cursos
     - sesiones
     - registro de asistentes
     """,
     'data': [
-             'views/openacademy_view.xml', # Todos los demas archivos de datos excepto datos demo y tests
+             'views/openacademy_view.xml',
              'views/partner.xml',
+             #'security/groups.xml',
+             #'security/ir.model.access.csv',
+             'wizard/create_attendee_view.xml',
              ],
     'demo': [
-             # Archivos XML o YAML que contienen datos demo
+             # Archivos que contienen datos demo
              ],
-    'tests': [
-              # Archivos XML o YAML que contienen tests
-              ],
-    'instalable': True,
+    'test': [
+             # Archivos que contienen tests
+             ],
+    'installable': True,
     'auto_install': False,
-    # 'certificate' : 'certificate',
+#    'certificate': 'certificate',
 }
-
-

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.actions.act_window" id="create_attendee_wizard_action">
+			<field name="name">Add Attendee</field>
+			<field name="res_model">openacademy.create.attendee.wizard</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+			<!-- El campo "key2" define un tipo de categoría de acción. Sus posibles 
+				valores son: "client_action_multi" (típico en los wizards), "client_print_multi 
+				(típico en los informes) , y "client_action_relate" (típico para vistas relacionadas 
+				(related views) -->
+			<!-- <field name="key2">client.action.multi</field> -->
+		</record>
+
+	<record model="ir.ui.view" id="create_attendee_wizard_form">
+		<field name="name">create.attendee.form</field>
+		<field name="model">openacademy.create.attendee.wizard</field>
+		<field name="arch" type="xml">
+			<form string="Session Form" version="7.0">
+				<group colspan="2">
+					<field name="session_id" colspan="2" />
+				</group>
+				<field name="attendee_ids" nolabel="1" colspan="4">
+					<tree string="Attendees" editable="bottom">
+						<field name="partner_id" />
+					</tree>
+				</field>
+				<footer>
+					<button type="special" special="cancel" string="Cancel"
+						icon="gtk-cancel" />
+					<button type="object" name="action_add_attendee" string="Add Attendees"
+						icon="gtk-ok" confirm="Are you sure you want to add those attendees? "/>
+					
+				</footer>
+			</form>
+		</field>
+	</record>
+
+		<menuitem name="Add attendee" parent="openacademy_menu"
+			id="create_attendee_wizard_menu" action="create_attendee_wizard_action" />
+
+	</data>
+</openerp>

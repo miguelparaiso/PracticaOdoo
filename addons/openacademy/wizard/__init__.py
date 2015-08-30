@@ -21,6 +21,4 @@
 #
 ##############################################################################
 
-import course
-import partner
-import wizard
+import create_attendee
